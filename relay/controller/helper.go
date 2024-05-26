@@ -193,6 +193,7 @@ func postConsumeQuota(ctx context.Context, usage *relaymodel.Usage, meta *meta.M
 	model.RecordConsumeLog(ctx, meta.UserId, meta.ChannelId, promptTokens, completionTokens, textRequest.Model, meta.TokenName, quota, logContent)
 	model.UpdateUserUsedQuotaAndRequestCount(meta.UserId, quota)
 	model.UpdateChannelUsedQuota(meta.ChannelId, quota)
+	model.RecordConsumeText(meta.UserId, meta.TokenName, meta.Prompt, meta.Completion)
 }
 
 func getMappedModelName(modelName string, mapping map[string]string) (string, bool) {

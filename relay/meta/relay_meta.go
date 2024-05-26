@@ -27,6 +27,8 @@ type Meta struct {
 	ActualModelName string
 	RequestURLPath  string
 	PromptTokens    int // only for DoResponse
+	Prompt          string
+	Completion      string
 }
 
 func GetByContext(c *gin.Context) *Meta {
