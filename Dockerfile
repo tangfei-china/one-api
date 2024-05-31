@@ -16,7 +16,7 @@ WORKDIR /web/air
 RUN npm install
 RUN DISABLE_ESLINT_PLUGIN='true' REACT_APP_VERSION=$(cat VERSION) npm run build
 
-FROM golang AS builder2
+FROM golang:1.19 AS builder2
 
 ENV GO111MODULE=on \
     CGO_ENABLED=1 \
